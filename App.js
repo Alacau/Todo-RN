@@ -1,20 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 
 import AddButton from './components/AddButton'
 
 const App = () => {
   return(
-    <View style={styles.addButton}>
+    <SafeAreaView style={styles.addButton}>
       <AddButton/>
-    </View>
+    </SafeAreaView>
     
   );
 }
 
 const styles = StyleSheet.create({
+  view: {
+    flex: 1
+  },
   addButton: {
-    justifyContent: "flex-end"
+    position: "absolute",
+    bottom: 20,
+    right: 20
   }
 })
 

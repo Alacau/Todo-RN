@@ -3,13 +3,13 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const AddButton = () => {
   return(
-    <TouchableOpacity onPress={handleCreateTodo}>
-        <Image
-            source={require('../assets/add.png')}
-            resizeMode="center"
-            style={styles.image}
-        />
-    </TouchableOpacity>
+        <TouchableOpacity onPress={handleCreateTodo}>
+            <Image
+                source={require('../assets/add.png')}
+                resizeMode="center"
+                style={styles.image}
+            />
+        </TouchableOpacity>        
   );
 }
 
@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         height: 96,
         borderColor: "#000",
         borderRadius: 96 / 2,
-        borderWidth: .5
+        borderWidth: .5,
+        backgroundColor: "#d26778"
     },
 })
 
