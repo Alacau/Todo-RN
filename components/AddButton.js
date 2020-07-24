@@ -6,7 +6,6 @@ const AddButton = () => {
         <TouchableOpacity onPress={handleCreateTodo}>
             <Image
                 source={require('../assets/add.png')}
-                resizeMode="center"
                 style={styles.image}
             />
         </TouchableOpacity>        
@@ -19,12 +18,12 @@ const handleCreateTodo = () => {
 
 const styles = StyleSheet.create({
     image: {
-        width: 96,
-        height: 96,
-        borderColor: "#000",
-        borderRadius: 96 / 2,
-        borderWidth: .5,
-        backgroundColor: "#d26778"
+        width: 72,
+        height: 72,
+        borderRadius: 72/ 2,
+        backgroundColor: "#FF5E5E",
+        resizeMode: "center",
+        aspectRatio: 1
     },
 })
 
