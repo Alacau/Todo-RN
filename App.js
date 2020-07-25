@@ -1,40 +1,75 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { useState } from 'react';
+import { StyleSheet, View, FlatList, Button, TextInput } from 'react-native';
 
-import { View, Text, Button } from 'react-native';
-import MainScreen from './screens/MainScreen'
-import CreateToDoItemScreen from './screens/CreateTodoItemScreen';
+import Header from "./components/Header";
+import TodoItem from "./components/TodoItem";
+import ListEmpty from "./components/ListEmpty";
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button title= "Go to details" onPress={() => navigation.navigate("Details")} />
-    </View>
-  );
-}
-
-function DetailsScreen({ navigation }) {
-  return (
-    <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
-      <Button title="Go to Details...again" onPress={() => navigation.navigate("Home")} />
-    </View>
-  );
-}
-
-const Stack = createStackNavigator();
-
+const todoItems = [
+  
+];
+ 
 const App = () => {
+  const [text, setText] = useState();
+
+  const renderItem = ({ item }) => {
+    return (
+      <TodoItem text={item.text} setText={setText}/>
+    );
+  }  
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Todo">
-        <Stack.Screen name="Todo" component={MainScreen} />
-        <Stack.Screen name="Create a Todo Item" component={CreateToDoItemScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Header/>
+      <View style={styles.textField}>
+        <TextInput 
+          placeholder="What do you want to do today?"
+          onChangeText={(text) => console.log(text)}
+          onSubmitEditing={handleAddItem}
+        />
+      </View>
+      <View style={styles.button}>
+        <Button title="Add to list" color="white" onPress={handleAddItem}/>
+      </View>
+      <FlatList 
+        data={todoItems} 
+        renderItem={renderItem} 
+        ListEmptyComponent={ListEmpty} 
+        scrollEnabled={
+          todoItems.length == 0 ? false : true
+        }
+        style={styles.flatlist}
+      />
+    </View>
   );
 }
+
+const handleAddItem = (text) => {
+  console.log(text)
+}
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white"
+  },
+  button: {
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: "#FF5E5E",
+    height: 48,
+    borderRadius: 48 / 2,
+    justifyContent: "center"
+  },
+  flatlist: {
+    paddingTop: 8
+  },
+  textField: {
+    borderBottomWidth: 1,
+    margin: 20,
+    padding: 8
+  }
+})
 
 export default App;

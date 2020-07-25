@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, SafeAreaView, Text, Platform } from 'react-native'
 
-const TodoListEmpty = () => {
+export default function ListEmpty() {
     return(
         <SafeAreaView style={styles.view}>
             <Image source={require('../assets/empty-list.png')} style={styles.image} />
@@ -24,5 +24,3 @@ const styles = StyleSheet.create({
         textAlign: "center"
     }
 })
-
-export default TodoListEmpty;
