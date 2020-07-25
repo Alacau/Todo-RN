@@ -3,10 +3,10 @@ import { StyleSheet, SafeAreaView, FlatList, Text, View } from 'react-native';
 
 import AddButton from '../components/AddButton';
 import TodoItemCell from '../components/TodoItemCell';
+import TodoListEmpty from '../components/TodoListEmpty';
 
 const dummyData = [
-    {id: "123", title: "First item"},
-    {id: "456", title: "Second item"}
+    {id: "123", title: "First item"}
 ];
 
 const MainScreen = () => {
@@ -18,7 +18,7 @@ const MainScreen = () => {
 
     return (
         <View style={styles.view}>
-            <FlatList data={dummyData} renderItem={renderItem} style={styles.flatlist}/>
+            <FlatList data={dummyData} renderItem={renderItem} ListEmptyComponent={TodoListEmpty} scrollEnabled={false}/>
             <SafeAreaView style={styles.addButton}>
                 <AddButton/>
             </SafeAreaView>
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     },
 
     flatlist: {
+        backgroundColor: "#E5E5E5"
     }, 
     
     view: {
