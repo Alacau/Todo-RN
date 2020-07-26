@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, SafeAreaView, Text, Platform } from 'react-native'
+import { StyleSheet, Image, SafeAreaView, Text } from 'react-native'
 
 export default function ListEmpty() {
     return(
