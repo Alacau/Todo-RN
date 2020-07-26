@@ -4,21 +4,19 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 export default function TodoItem({ text }) {
     return(
         <TouchableOpacity style={styles.container}>
-            <Text>{text}</Text>
+            <Text style={styles.text} >{text}</Text>
         </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        height: 44,
         backgroundColor: "white",
-        marginTop: 16,
-        marginLeft: 20,
-        marginRight: 20,
-        padding: 20,
+        justifyContent: "center",
         alignItems: "center",
-        borderStyle: "dashed",
-        borderWidth: 1,
-        borderRadius: 20 / 2,
     },
+    text: {
+        fontSize: 16,
+    }
 })
