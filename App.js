@@ -2,8 +2,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Button, TextInput } from 'react-native';
+import React from 'react';
 
 import TodoList from "./screens/TodoList";
  
@@ -18,9 +17,5 @@ const App = () => {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  
-})
 
 export default App;
